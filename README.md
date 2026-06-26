@@ -148,17 +148,32 @@ the retargeting method, pipeline, and core code belongs to the GMR authors; this
 kit only adds helper scripts for computing `quat_offset` / `scale` when onboarding
 a new robot. GMR is **not** bundled here — obtain it separately.
 
-If you use this kit, please cite the GMR work:
+If you use this kit, please cite the GMR work (BibTeX copied verbatim from the
+[GMR repository](https://github.com/YanjieZe/GMR)):
 
 ```bibtex
-@article{araujo2025gmr,
-  title   = {Retargeting Matters: General Motion Retargeting for Humanoid Motion Tracking},
-  author  = {Araujo, Joao Pedro and Ze, Yanjie and others},
-  journal = {arXiv preprint arXiv:2510.02252},
-  year    = {2025}
+@article{joao2025gmr,
+  title={Retargeting Matters: General Motion Retargeting for Humanoid Motion Tracking},
+  author= {Joao Pedro Araujo and Yanjie Ze and Pei Xu and Jiajun Wu and C. Karen Liu},
+  year= {2025},
+  journal= {arXiv preprint arXiv:2510.02252}
+}
+
+@article{ze2025twist,
+  title={TWIST: Teleoperated Whole-Body Imitation System},
+  author= {Yanjie Ze and Zixuan Chen and João Pedro Araújo and Zi-ang Cao and Xue Bin Peng and Jiajun Wu and C. Karen Liu},
+  year= {2025},
+  journal= {arXiv preprint arXiv:2505.02833}
+}
+
+@software{ze2025gmr,
+  title={GMR: General Motion Retargeting},
+  author= {Yanjie Ze and João Pedro Araújo and Jiajun Wu and C. Karen Liu},
+  year= {2025},
+  url= {https://github.com/YanjieZe/GMR},
+  note= {GitHub repository}
 }
 ```
-(See the GMR repo for the exact, up-to-date BibTeX and related TWIST citations.)
 
 ## License / scope
 This kit is released under the **MIT License** (see `LICENSE`), the same license
