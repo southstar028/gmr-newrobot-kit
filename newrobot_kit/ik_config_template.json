@@ -1,0 +1,57 @@
+{
+  "_comment": "GMR ik_config template for a NEW robot. Copy, fill the TODOs, rename to <source>_to_<robot>.json (source = smplx | bvh_lafan1 | xrobot). One file per source family. Field format per row: [human_body, pos_weight, rot_weight, [x,y,z] pos_offset, [w,x,y,z] quat_offset].",
+
+  "robot_root_name": "TODO_robot_root_body_name",
+  "human_root_name": "Pelvis",
+  "ground_height": 0.0,
+  "human_height_assumption": 1.8,
+  "use_ik_match_table1": true,
+  "use_ik_match_table2": true,
+
+  "_scale_comment": "Fill from scale_table.py output, but GROUP into ~2 tiers (legs vs arms). Do NOT paste 14 raw values. Root is uniform (handled by motion_retarget at runtime via height ratio).",
+  "human_scale_table": {
+    "Pelvis": 0.95, "Spine3": 0.95,
+    "Left_Hip": 0.95, "Right_Hip": 0.95,
+    "Left_Knee": 0.95, "Right_Knee": 0.95,
+    "Left_Foot": 0.95, "Right_Foot": 0.95,
+    "Left_Shoulder": 0.85, "Right_Shoulder": 0.85,
+    "Left_Elbow": 0.85, "Right_Elbow": 0.85,
+    "Left_Wrist": 0.85, "Right_Wrist": 0.85
+  },
+
+  "_table1_comment": "STAGE 1 (paper Eq 4): end-effector POSITION + ALL ORIENTATIONS. Feet pos_weight=100 rot=0; pelvis pos=100 rot=10; intermediate joints pos=0 rot=10. quat_offset from quat_offset.py. pos_offset stays [0,0,0] unless a body visibly needs a small shift (self-collision / toed-in).",
+  "ik_match_table1": {
+    "TODO_robot_pelvis":     ["Pelvis",          100, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_hip":      ["Left_Hip",          0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_knee":     ["Left_Knee",         0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_ankle":    ["Left_Foot",       100,  0, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_hip":      ["Right_Hip",         0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_knee":     ["Right_Knee",        0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_ankle":    ["Right_Foot",      100,  0, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_torso":      ["Spine3",            0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_shoulder": ["Left_Shoulder",     0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_elbow":    ["Left_Elbow",        0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_wrist":    ["Left_Wrist",        0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_shoulder": ["Right_Shoulder",    0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_elbow":    ["Right_Elbow",       0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_wrist":    ["Right_Wrist",       0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]]
+  },
+
+  "_table2_comment": "STAGE 2 (paper Eq 6): add light POSITION on all key bodies (warm-started from Stage 1). Intermediate joints pos_weight=10, rot lowered to 5; feet stay pos=100. Same quat_offset values as table1.",
+  "ik_match_table2": {
+    "TODO_robot_pelvis":     ["Pelvis",          100,  5, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_hip":      ["Left_Hip",         10,  5, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_knee":     ["Left_Knee",        10,  5, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_ankle":    ["Left_Foot",       100,  0, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_hip":      ["Right_Hip",        10,  5, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_knee":     ["Right_Knee",       10,  5, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_ankle":    ["Right_Foot",      100,  0, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_torso":      ["Spine3",            0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_shoulder": ["Left_Shoulder",     0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_elbow":    ["Left_Elbow",        0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_l_wrist":    ["Left_Wrist",        0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_shoulder": ["Right_Shoulder",    0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_elbow":    ["Right_Elbow",       0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]],
+    "TODO_robot_r_wrist":    ["Right_Wrist",       0, 10, [0.0, 0.0, 0.0], [1.0, 0.0, 0.0, 0.0]]
+  }
+}
