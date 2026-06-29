@@ -125,6 +125,9 @@ Notes per source:
   smplx/bvh config (`METHOD.md`, `CAUTIONS.md` §2).
 
 ## Method (why it is computed this way)
+> Deeper theory — how the GMR paper's equations (Eq 2–6) map to the code and to this
+> toolkit — is in [`THEORY.md`](THEORY.md).
+
 - **quat_offset**: no single formula is right for every link — see `METHOD.md`.
   Legs/torso: zero-pose FK Δ from a G1 baseline is correct. Arms: it is ~90°
   wrong (G1's zero pose has arms raised), so arms come from an explicit T-pose
